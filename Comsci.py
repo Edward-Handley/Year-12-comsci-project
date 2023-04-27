@@ -1,6 +1,8 @@
 import random
 import time
 
+
+
 class Character:
     def __init__(self, name, stamina, attack, defense, health):
         self.name = name
@@ -21,6 +23,21 @@ class Character:
         self.attack = self.attack + attack
         self.defense = self.defense + defense
         self.health = self.health + health
+
+class Enemy: #Broad class for all the enemies then sub classes for each enemy type.
+    def __init__(self, name, stamina, attack, defense, health):
+        self.name = name
+        self.stamina = stamina
+        self.attack = attack
+        self.defense = defense
+        self.health = health
+
+class Robber(Enemy):#sub class of enemy 
+    def __init__(self):
+        super().__init__("Rob the Robber", 80, 80, 80, 80)#super allows inherit the attributes from the enemy class, more info https://realpython.com/python-super/
+
+
+        
 
 
 def Intro():
@@ -86,22 +103,23 @@ def Create_Character():
 
 
 
-class Robbers():
-    def __init__(self, name, health, attack, defense):
-        self.name = "Rob the Robber"
-        self.health = health
-        self.attack = attack
-        self.defense = defense
+# class Robbers():
+#     def __init__(self, name, health, attack, defense):
+#         self.name = "Rob the Robber"
+#         self.health = health
+#         self.attack = attack
+#         self.defense = defense
     
-    def display_stats(self):
-        print("Character Name: ", self.name)
-        print("Stamina: ", self.stamina)
-        print("Attack: ", self.attack)
-        print("Defense: ", self.defense)
-        print("Health: ", self.health)
+#     def display_stats(self):
+#         print("Character Name: ", self.name)
+#         print("Attack: ", self.attack)
+#         print("Defense: ", self.defense)
+#         print("Health: ", self.health)
     
 
-    
+def Enemy(name, health, attack, defense):   
+    #function to assign the current enemy 
+    enemy = name(health, attack, defense)
 
 def Forrest():
     print("You are now in the forest, you are surrounded by trees with a sole gravel footpath leading through the forest \n this parth leeds to the exit")
@@ -113,8 +131,13 @@ def Forrest():
         print("Invalid entry, please try again")
         run_or_walk = input("Feeling uneasy about the forrest you begin moveing towards the exit, do you chose to run [R] or walk [W]?").upper()
     if run_or_walk == "R":
+        print("You begin to run, you are making good progress and are nearly at the exit when a robber sprins out onto the path")
+        print("You have no choice but to fight")
+
         
-    
+def combat(enemy, knight):
+    #
+    print(f"{enemy.name}")  
     
     
 
@@ -155,76 +178,3 @@ main()
 
 
 
-
-   #start = input("Read to start [Y/N]")
-    #if start != "Y" or "N":
-    #   print("Invalid entry please try again")
-    #   start = input("Read to start [Y/N]")
-    # name = input("What shall your knight be called? ")
-    # Knight = Character(name, 80,80,80,80,)
-    # print(f"Knight {name}, wonderfull name")
-    # print("Here are your current stats")
-    # print(f"Stamina: {Knight.stamina}")
-    # print(f"Attack: {Knight.attack}")
-    # print(f"Defense: {Knight.defense}")
-    # print(f"Health: {Knight.health}")
-    # print("Now you can choose to upgrade your stats")
-    # print("You can upgrade your stats by 20 points to a max of 100, however you have to share the 20 points between all stats")
-    # points_to_spend = 20
-
-    # while points_to_spend > 0:
-    #     print(f"You have {points_to_spend} points to spend")
-    #     stamina = int(input("How many points would you like to spend on Stamina?"))
-    #     while stamina > points_to_spend:
-    #         print("You don't have enough points to spend")
-    #         stamina = int(input("How many points would you like to spend on Stamina?"))
-
-    #     attack = int(input("How many points would you like to spend on Attack?"))
-    #     while attack > points_to_spend:
-    #         print("You don't have enough points to spend")
-    #         attack = int(input("How many points would you like to spend on Attack?"))
-
-    #     defense = int(input("How many points would you like to spend on Defense?"))
-    #     while defense > points_to_spend:
-    #         print("You don't have enough points to spend")
-    #         defense = int(input("How many points would you like to spend on Defense?"))
-
-    #     health = int(input("How many points would you like to spend on Health?"))
-    #     while health > points_to_spend:
-    #         print("You don't have enough points to spend")
-    #         health = int(input("How many points would you like to spend on Health?"))
-
-    #     points_to_spend -= (stamina + attack + defense + health)
-
-    #     if points_to_spend < 0:
-    #         print("You have spent too many points, please try again")
-    #         points_to_spend = 20
-    #     else:
-    #         print("You have spent all your points")
-    #         Knight.update_attributes(stamina, attack, defense, health)
-            
-            #print("Here are your new stats")
-            #
-            # Knight.display_stats()
-#Prints the character stats in a table
-
-
-
-#SELECT ALL LINES THEN CTRL + /  results in multi comment
-    # print("""\
-    #           ______________                               
-    #                     ,===:'.,            `-._                           
-    #         `:.     `--.         `.                     
-    #                              \.        `.         `.                   
-    #                      (,,(,    \.         `.   ____,-`.,                
-    #                   (,'     `/   \.   ,--.___`.'                         
-    #               ,  ,'  ,--.  `,   \.;'         `                         
-    #                `{D, {    \  :    \;                                    
-    #                  V,,'    /  /    //                                    
-    #                  j;;    /  ,' ,-//.    ,---.      ,                    
-    #                  \;'   /  ,' /  _  \  /  _  \   ,'/                    
-    #                        \   `'  / \  `'  / \  `.' /                     
-    #                         `.___,'   `.__,'   `.__,' 
-        
-    #     """)
-    # print("\n \n \n")
