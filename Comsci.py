@@ -1,7 +1,16 @@
 import random
 import time
 
+
+
 class Character:
+    def __init__(self, name, stamina, attack, defense, health):
+        self.name = name
+    def update_attributes(self, stamina, attack, defense, health): # self.stamina +
+        self.defense = self.defense + defense
+        self.health = self.health + health
+
+class Enemy: #Broad class for all the enemies then sub classes for each enemy type.
     def __init__(self, name, stamina, attack, defense, health):
         self.name = name
         self.stamina = stamina
@@ -9,18 +18,12 @@ class Character:
         self.defense = defense
         self.health = health
 
-    def display_stats(self):
-        print("Character Name: ", self.name)
-        print("Stamina: ", self.stamina)
-        print("Attack: ", self.attack)
-        print("Defense: ", self.defense)
-        print("Health: ", self.health)
+class Robber(Enemy):#sub class of enemy 
+    def __init__(self):
+        super().__init__("Rob the Robber", 80, 80, 80, 80)#super allows inherit the attributes from the enemy class, more info https://realpython.com/python-super/
 
-    def update_attributes(self, stamina, attack, defense, health): # self.stamina + stamina because otherwise it would override
-        self.stamina =  self.stamina + stamina
-        self.attack = self.attack + attack
-        self.defense = self.defense + defense
-        self.health = self.health + health
+
+
 
 
 def Intro():
@@ -92,66 +95,50 @@ class Robbers():
         self.health = health
         self.attack = attack
         self.defense = defense
-    
+# class Robbers():
+#     def __init__(self, name, health, attack, defense):
+#         self.name = "Rob the Robber"
+#         self.health = health
+#         self.attack = attack
+#         self.defense = defense
+
     def display_stats(self):
         print("Character Name: ", self.name)
         print("Stamina: ", self.stamina)
         print("Attack: ", self.attack)
         print("Defense: ", self.defense)
         print("Health: ", self.health)
-    
+#     def display_stats(self):
+#         print("Character Name: ", self.name)
+#         print("Attack: ", self.attack)
+#         print("Defense: ", self.defense)
+#         print("Health: ", self.health)
 
-    
+
+
+def Enemy(name, health, attack, defense):   
+    #function to assign the current enemy 
+    enemy = name(health, attack, defense)
 
 def Forrest():
     print("You are now in the forest, you are surrounded by trees with a sole gravel footpath leading through the forest \n this parth leeds to the exit")
-    print("However you know that in the forrest lurks many dangerous creatures, you must be careful")
-
-    # put a ascii art when decisenio segment
-    run_or_walk = input("Feeling uneasy about the forrest you begin moveing towards the exit, do you chose to run [R] or walk [W]?").upper()
-    while run_or_walk not in ["R", "W"]:
+def Forrest():
         print("Invalid entry, please try again")
         run_or_walk = input("Feeling uneasy about the forrest you begin moveing towards the exit, do you chose to run [R] or walk [W]?").upper()
     if run_or_walk == "R":
-        
-    
-    
-    
-
-
-
-
-def main():
-    print("Welcome to .... game")
-    print("First you have to make your character \n \n"
-    Create_Character()
-
-    
-    intro = input("Do you want an intro to the game? [Y/N]").upper()
-    while intro not in ["Y", "N"]:
-        print("Invalid entry, please try again")
-        intro = input("Do you want an intro to the game? [Y/N] ")
-
-    if intro == "Y":
-        Intro()
-    else:
-        print("Good luck")
-    print("\n \n \n \n")
-
-    # print("You are now in the forest")
-    # print("With tall trees blocking out any light ....")
-    # print("You are stood on a gravel track, you can see the")
-        
-
-main()
-
+        print("You begin to run, you are making good progress and are nearly at the exit when a robber sprins out onto the path")
+        print("You have no choice but to fight")
 
 ## test commit
 
 
+def combat(enemy, knight):
+    #
+    print(f"{enemy.name}")  
 
 
 
+@@ -155,76 +178,3 @@ def main():
 
 
 
@@ -202,7 +189,7 @@ main()
     #     else:
     #         print("You have spent all your points")
     #         Knight.update_attributes(stamina, attack, defense, health)
-            
+
             #print("Here are your new stats")
             #
             # Knight.display_stats()
@@ -225,6 +212,6 @@ main()
     #                  \;'   /  ,' /  _  \  /  _  \   ,'/                    
     #                        \   `'  / \  `'  / \  `.' /                     
     #                         `.___,'   `.__,'   `.__,' 
-        
+
     #     """)
     # print("\n \n \n")
