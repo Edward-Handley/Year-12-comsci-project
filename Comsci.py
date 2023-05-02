@@ -24,17 +24,48 @@ class Character:
         self.defense = self.defense + defense
         self.health = self.health + health
 
-class Enemy: #Broad class for all the enemies then sub classes for each enemy type.
+
+class Robber:
     def __init__(self, name, stamina, attack, defense, health):
         self.name = name
         self.stamina = stamina
         self.attack = attack
         self.defense = defense
         self.health = health
+    
 
-class Robber(Enemy):#sub class of enemy 
-    def __init__(self):
-        super().__init__("Rob the Robber", 80, 80, 80, 80)#super allows inherit the attributes from the enemy class, more info https://realpython.com/python-super/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# class Enemy: #Broad class for all the enemies then sub classes for each enemy type.
+#     def __init__(self, name, stamina, attack, defense, health):
+#         self.name = name
+#         self.stamina = stamina
+#         self.attack = attack
+#         self.defense = defense
+#         self.health = health
+
+# class Robber(Enemy):#sub class of enemy 
+#     def __init__(self):
+#         super().__init__("Rob the Robber", 80, 80, 80, 80)#super allows inherit the attributes from the enemy class, more info https://realpython.com/python-super/
 
 
 
