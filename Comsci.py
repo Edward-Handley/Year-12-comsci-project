@@ -1,28 +1,29 @@
+from Characters.Character import *
 #import random
 #import time
 
 
 
-class Character:
-    def __init__(self, name, stamina, attack, defense, health):
-        self.name = name
-        self.stamina = stamina
-        self.attack = attack
-        self.defense = defense
-        self.health = health
+# class Character:
+#     def __init__(self, name, stamina, attack, defense, health):
+#         self.name = name
+#         self.stamina = stamina
+#         self.attack = attack
+#         self.defense = defense
+#         self.health = health
 
-    def display_stats(self):
-        print("Character Name: ", self.name)
-        print("Stamina: ", self.stamina)
-        print("Attack: ", self.attack)
-        print("Defense: ", self.defense)
-        print("Health: ", self.health)
+#     def display_stats(self):
+#         print("Character Name: ", self.name)
+#         print("Stamina: ", self.stamina)
+#         print("Attack: ", self.attack)
+#         print("Defense: ", self.defense)
+#         print("Health: ", self.health)
 
-    def update_attributes(self, stamina, attack, defense, health): # self.stamina + stamina because otherwise it would override
-        self.stamina =  self.stamina + stamina
-        self.attack = self.attack + attack
-        self.defense = self.defense + defense
-        self.health = self.health + health
+#     def update_attributes(self, stamina, attack, defense, health): # self.stamina + stamina because otherwise it would override
+#         self.stamina =  self.stamina + stamina
+#         self.attack = self.attack + attack
+#         self.defense = self.defense + defense
+#         self.health = self.health + health
 
 
 class Robber:
@@ -40,36 +41,6 @@ class Robber:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# class Enemy: #Broad class for all the enemies then sub classes for each enemy type.
-#     def __init__(self, name, stamina, attack, defense, health):
-#         self.name = name
-#         self.stamina = stamina
-#         self.attack = attack
-#         self.defense = defense
-#         self.health = health
-
-# class Robber(Enemy):#sub class of enemy 
-#     def __init__(self):
-#         super().__init__("Rob the Robber", 80, 80, 80, 80)#super allows inherit the attributes from the enemy class, more info https://realpython.com/python-super/
-
-
-
-
         
 
 
@@ -82,72 +53,11 @@ def Intro():
     print("The trecherous marsh lands")
     print("Once you do all these you can return home to your kingdom")
     print("Good luck")
-
-
-def Create_Character():
-    name = input("What shall your knight be called? ")
-    Knight = Character(name, 80,80,80,80,)
-    print(f"Knight {name}, wonderfull name")    
-    print("As a knight you have 4 attributes")
-    print("Stamina, Attack, Defense and Health")
-    print("All start at a level of 80, you can now spend 20 points to upgrade your stats")
-    start = input("Read to start [Y/N] ").upper()
-    if start != "Y" or "N":
-        print("Invalid entry please try again")
-        start = input("Read to start [Y/N]").upper()
-    while start != "Y":
-        start = input("When you are ready to start type Y")
-    points_to_spend = 20
-    while points_to_spend > 0:
-        print(f"You have {points_to_spend} points to spend")
-        stamina = int(input(f"Your current stamina is {Knight.stamina}, how many points would you like to spend on Stamina? "))
-        while stamina > points_to_spend:
-            print("You don't have enough points to spend")
-            stamina = int(input(f"Your current stamina is {Knight.stamina}, how many points would you like to spend on Stamina? "))
-        print(f"Great {stamina} points added to stamina. You have {points_to_spend - stamina} points left")
-        
-        points_to_spend = points_to_spend - stamina
-        attack = int(input(f"Your current attack is {Knight.attack}, how many points would you like to spend on Attack? "))
-        while attack > points_to_spend:
-            print("You don't have enough points to spend")
-            attack = int(input(f"Your current attack is {Knight.attack}, how many points would you like to spend on Attack? "))
-        print(f"Great {attack} points added to attack. You have {points_to_spend - attack} points left")
-        
-        points_to_spend = points_to_spend - attack
-        defense = int(input(f"Your current defense is {Knight.defense}, how many points would you like to spend on Defense? "))
-        while defense > points_to_spend:
-            print("You don't have enough points to spend")
-            defense = int(input(f"Your current defense is {Knight.defense}, how many points would you like to spend on Defense? "))
-        print(f"Great {defense} points added to defense. You have {points_to_spend - defense} points left")
-
-        points_to_spend = points_to_spend - defense
-        health = int(input(f"Your current health is {Knight.health}, how many points would you like to spend on Health? "))
-        while health > points_to_spend:
-            print("You don't have enough points to spend")
-            health = int(input(f"Your current health is {Knight.health}, how many points would you like to spend on Health? "))
-        print(f"Great {health} points added to health. You have {points_to_spend - health} points left")
-        points_to_spend = points_to_spend - health
-    
-    Knight.update_attributes(stamina, attack, defense, health)
-    print("╔═════════════════════╦════════════════╗")
-    print("║          CHARACTER ATTRIBUTES        ║")
-    print("╠═════════════════════╬════════════════╣")
-    Knight.display_stats()
+    my_character = Character("default", 0, 0, 0, 0)
+    my_character.Create_Character()
 
 
 
-# class Robbers():
-#     def __init__(self, name, health, attack, defense):
-#         self.name = "Rob the Robber"
-#         self.health = health
-#         self.attack = attack
-#         self.defense = defense
-    
-#     def display_stats(self):
-#         print("Character Name: ", self.name)
-#         print("Attack: ", self.attack)
-#         print("Defense: ", self.defense)
-#         print("Health: ", self.health)
     
 
 def Enemy(name, health, attack, defense):   
@@ -171,17 +81,18 @@ def Forrest():
 
 
     
-def combat(player, Enemy): #credit for idea https://www.youtube.com/watch?v=8F2MAJEeKjw
-    print(f"{player.name} v {Enemy.name}") # need to create instance of each outside functions
+#def combat(player, Enemy): #credit for idea https://www.youtube.com/watch?v=8F2MAJEeKjw
+   # print(f"{player.name} v {Enemy.name}") # need to create instance of each outside functions
 
    
-
+print("TEST TEST")
 
 
 
 def main():
     print("Welcome to .... game")
     print("First you have to make your character \n \n")
+    
     Create_Character()
     
 
@@ -198,9 +109,7 @@ def main():
     print("\n \n \n \n")
 
     Forrest()
-    # print("You are now in the forest")
-    # print("With tall trees blocking out any light ....")
-    # print("You are stood on a gravel track, you can see the")
+    
         
 
 main()
@@ -209,7 +118,85 @@ main()
 
 
 
+################################ BIN FOR CODE MIGHT STILL NEED ################################
 
+# def Create_Character():
+#     name = input("What shall your knight be called? ")
+#     Knight = Character(name, 80,80,80,80,)
+#     print(f"Knight {name}, wonderfull name")    
+#     print("As a knight you have 4 attributes")
+#     print("Stamina, Attack, Defense and Health")
+#     print("All start at a level of 80, you can now spend 20 points to upgrade your stats")
+#     start = input("Read to start [Y/N] ").upper()
+#     if start != "Y" or "N":
+#         print("Invalid entry please try again")
+#         start = input("Read to start [Y/N]").upper()
+#     while start != "Y":
+#         start = input("When you are ready to start type Y")
+#     points_to_spend = 20
+#     while points_to_spend > 0:
+#         print(f"You have {points_to_spend} points to spend")
+#         stamina = int(input(f"Your current stamina is {Knight.stamina}, how many points would you like to spend on Stamina? "))
+#         while stamina > points_to_spend:
+#             print("You don't have enough points to spend")
+#             stamina = int(input(f"Your current stamina is {Knight.stamina}, how many points would you like to spend on Stamina? "))
+#         print(f"Great {stamina} points added to stamina. You have {points_to_spend - stamina} points left")
+        
+#         points_to_spend = points_to_spend - stamina
+#         attack = int(input(f"Your current attack is {Knight.attack}, how many points would you like to spend on Attack? "))
+#         while attack > points_to_spend:
+#             print("You don't have enough points to spend")
+#             attack = int(input(f"Your current attack is {Knight.attack}, how many points would you like to spend on Attack? "))
+#         print(f"Great {attack} points added to attack. You have {points_to_spend - attack} points left")
+        
+#         points_to_spend = points_to_spend - attack
+#         defense = int(input(f"Your current defense is {Knight.defense}, how many points would you like to spend on Defense? "))
+#         while defense > points_to_spend:
+#             print("You don't have enough points to spend")
+#             defense = int(input(f"Your current defense is {Knight.defense}, how many points would you like to spend on Defense? "))
+#         print(f"Great {defense} points added to defense. You have {points_to_spend - defense} points left")
+
+#         points_to_spend = points_to_spend - defense
+#         health = int(input(f"Your current health is {Knight.health}, how many points would you like to spend on Health? "))
+#         while health > points_to_spend:
+#             print("You don't have enough points to spend")
+#             health = int(input(f"Your current health is {Knight.health}, how many points would you like to spend on Health? "))
+#         print(f"Great {health} points added to health. You have {points_to_spend - health} points left")
+#         points_to_spend = points_to_spend - health
+    
+#     Knight.update_attributes(stamina, attack, defense, health)
+#     print("╔═════════════════════╦════════════════╗")
+#     print("║          CHARACTER ATTRIBUTES        ║")
+#     print("╠═════════════════════╬════════════════╣")
+#     Knight.display_stats()
+
+
+
+# class Robbers():
+#     def __init__(self, name, health, attack, defense):
+#         self.name = "Rob the Robber"
+#         self.health = health
+#         self.attack = attack
+#         self.defense = defense
+    
+#     def display_stats(self):
+#         print("Character Name: ", self.name)
+#         print("Attack: ", self.attack)
+#         print("Defense: ", self.defense)
+#         print("Health: ", self.health)
+
+
+# class Enemy: #Broad class for all the enemies then sub classes for each enemy type.
+#     def __init__(self, name, stamina, attack, defense, health):
+#         self.name = name
+#         self.stamina = stamina
+#         self.attack = attack
+#         self.defense = defense
+#         self.health = health
+
+# class Robber(Enemy):#sub class of enemy 
+#     def __init__(self):
+#         super().__init__("Rob the Robber", 80, 80, 80, 80)#super allows inherit the attributes from the enemy class, more info https://realpython.com/python-super/
 
 
 
