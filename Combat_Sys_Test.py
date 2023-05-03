@@ -79,3 +79,5 @@ def combat(player, Enemy): #credit for idea https://www.youtube.com/watch?v=8F2M
 
 
 combat(Knight, Enemy)
+
+#test
