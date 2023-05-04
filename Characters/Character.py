@@ -71,6 +71,7 @@ def Create_Character():
     
     
     Base_Character.update_attributes(stamina, attack, defense, health)
+    return Base_Character
 
 
 

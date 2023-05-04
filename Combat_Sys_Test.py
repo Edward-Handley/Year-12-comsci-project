@@ -5,26 +5,26 @@ def Enemy(name, health, attack, defense):
     enemy = name(health, attack, defense)
 
 
-class Character:
-    def __init__(self, name, stamina, attack, defense, health):
-        self.name = name
-        self.stamina = stamina
-        self.attack = attack
-        self.defense = defense
-        self.health = health
+# class Character:
+#     def __init__(self, name, stamina, attack, defense, health):
+#         self.name = name
+#         self.stamina = stamina
+#         self.attack = attack
+#         self.defense = defense
+#         self.health = health
 
-    def display_stats(self):
-        print("Character Name: ", self.name)
-        print("Stamina: ", self.stamina)
-        print("Attack: ", self.attack)
-        print("Defense: ", self.defense)
-        print("Health: ", self.health)
+#     def display_stats(self):
+#         print("Character Name: ", self.name)
+#         print("Stamina: ", self.stamina)
+#         print("Attack: ", self.attack)
+#         print("Defense: ", self.defense)
+#         print("Health: ", self.health)
 
-    def update_attributes(self, stamina, attack, defense, health): # self.stamina + stamina because otherwise it would override
-        self.stamina =  self.stamina + stamina
-        self.attack = self.attack + attack
-        self.defense = self.defense + defense
-        self.health = self.health + health
+#     def update_attributes(self, stamina, attack, defense, health): # self.stamina + stamina because otherwise it would override
+#         self.stamina =  self.stamina + stamina
+#         self.attack = self.attack + attack
+#         self.defense = self.defense + defense
+#         self.health = self.health + health
 
 
 
