@@ -1,4 +1,4 @@
-from Characters.Character import *
+from Characters.Characters import *
 from Game_Functions.Intro_func import *
 import random
 
@@ -37,9 +37,9 @@ def Combat(player, enemy):
         E_defense = enemy.defense
 
         print(f"Combat between {player.name} and {enemy.name}")
-
+        turn = "p"
         while player.health > 0 and enemy.health >0:
-            turn = "p"
+            
             if turn == "p":
                 P_move = int(input("Do you want to attack[1] or defend[2] \n Enter here: "))
                 if P_move == 1:
@@ -47,6 +47,7 @@ def Combat(player, enemy):
                     if P_attack_chance: #True or False
                         P_damage = enemy.health
                         print(f"You hit {enemy.name} for {P_damage} insta killing")
+                        enemy.health -= P_damage
                     else:
                         print(f"You missed your attack")
                 elif P_move == 2:
@@ -59,8 +60,20 @@ def Combat(player, enemy):
                         player.health -= E_damage
                 turn = "e"
             elif turn =="e":
-                print("follow through")
-
+                print(f"Now it is {enemy.name}'s turn to attack")
+                E_attack_chance = E_attack * random.uniform(0.1,1) > P_attack * random.uniform(0.8,1.2)
+                if E_attack_chance:
+                    E_damage = random.randint(E_attack, player.health)
+                    print(f"{enemy.name} hit you for {E_damage} you have {player.health - E_damage} health left")
+                    player.health -= E_damage
+                else:
+                    print(f"{enemy.name} missed their attack on you")
+        if enemy.health <= 0:
+            print(f"You defeated {enemy.name}")
+            Combat_result = "win"
+        else:
+            print(f"you were defeated")
+            Combat_result = "lose"
 
                      
                      
@@ -71,27 +84,7 @@ def Combat(player, enemy):
         
         
         
-        
-        # while player.health > 0 and  enemy.health > 0:
-    #     #print(f"{player.health} vs {enemy.health}")
-        # P_move = int(input(f"you are entering combat you have 2 options \n [1]Attack \n [2]Run"))
-        # if P_move == 1:
-        #     print("attack")
-        #     if P_attack > E_defense:
-        #             #if P_attack - E_defense > For random chance
-        #         if P_attack > enemy.health:
-        #             print(f"You succesfully hit and defeated {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
-        #         else:
-        #             print(f"You succesfully hit  {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
-        #             print(f"They have {enemy.health} left")
-        # if P_move == 2:
-        #     print("defense")
-
-        #     if P_defense > P_attack:
-        #         print("You blocked the enemies attack, this has left them vunerable. You have a chance to critical hit them")
-        #         Counter = input(f"Do you want to counter attack \n [1]Yes \n[2]No")
-        #         if Counter == 1:
-        #             print("test")
+     
     
 
             
@@ -105,24 +98,34 @@ def Combat(player, enemy):
 
 def main():
     #Begging
-    #Pcharacter = Create_Character()
-    #Pstats = Character
-    Pcharacter = Character("ed", 80, 80, 80, 80) #just test data
+    Pcharacter = Create_Character()
+    Pstats = Character()
+    #Pcharacter = Character("ed", 80, 80, 80, 80) #just test data
 
     
-    #Pcharacter = Character(name, stamina, attack, defense, health)
-    # want_Intro = input("Do you want an intro to the game?   [Y/N]").upper()
-    # while want_Intro != "Y" or "N":
-    #     print("Invalid entry ry again")
-    #     want_Intro = input("Do you want an intro to the game?   [Y/N]").upper()
-    # if want_Intro == "Y":
-    #     Intro()
-    # else:
-    #     print("No intro, Good luck!")
+   # Pcharacter = Character(name, stamina, attack, defense, health)
+    #Pstats = Pcharacter.get_stats()
+    want_Intro = input("Do you want an intro to the game?   [Y/N]").upper()
+    while want_Intro != "Y" or "N":
+        print("Invalid entry ry again")
+        want_Intro = input("Do you want an intro to the game?   [Y/N]").upper()
+    if want_Intro == "Y":
+        Intro()
+    else:
+        print("No intro, Good luck!")
 
     print(f"Your character {Pcharacter.name} ")
-    enemy = Robber("Robber", 80, 80, 80, 80)
-    
-    Combat(Pcharacter, enemy)
+    enemy = Robber("Robber", 80, 80, 80, 80) #create instance of enemy for forrest section 
+    # run_or_Walk = Forrest()
+    # print(run_or_Walk)
+    # if run_or_Walk == "run":
+        
+        
+    Combat_winner = Combat(Pstats, enemy)
+
+
+
+    #Combat(Pcharacter, enemy)
 
 main()
+

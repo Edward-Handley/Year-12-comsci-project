@@ -1,4 +1,4 @@
-from Characters.Character import *
+from Characters.Characters import *
 from Game_Functions.Intro_func import *
 #import random
 #import time
@@ -202,3 +202,28 @@ main()
 #     print("Good luck")
 #     my_character = Character("default", 0, 0, 0, 0)
 #     my_character.Create_Character()
+
+
+
+
+   
+        # while player.health > 0 and  enemy.health > 0:
+    #     #print(f"{player.health} vs {enemy.health}")
+        # P_move = int(input(f"you are entering combat you have 2 options \n [1]Attack \n [2]Run"))
+        # if P_move == 1:
+        #     print("attack")
+        #     if P_attack > E_defense:
+        #             #if P_attack - E_defense > For random chance
+        #         if P_attack > enemy.health:
+        #             print(f"You succesfully hit and defeated {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
+        #         else:
+        #             print(f"You succesfully hit  {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
+        #             print(f"They have {enemy.health} left")
+        # if P_move == 2:
+        #     print("defense")
+
+        #     if P_defense > P_attack:
+        #         print("You blocked the enemies attack, this has left them vunerable. You have a chance to critical hit them")
+        #         Counter = input(f"Do you want to counter attack \n [1]Yes \n[2]No")
+        #         if Counter == 1:
+        #             print("test")

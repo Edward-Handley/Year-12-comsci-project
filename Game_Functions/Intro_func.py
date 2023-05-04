@@ -7,3 +7,18 @@ def Intro():
     print("The trecherous marsh lands")
     print("Once you do all these you can return home to your kingdom")
     print("Good luck")
+
+
+
+def Forrest():
+    print("You start you journey in a descriptive on a narrow gravel path")
+    run_or_walk = int(input("You see exit, run [1] or walk [2]"))
+    if run_or_walk == 1:
+        print("you begin to run for the exit, your footsteps crunch the gravel....")
+        print("Just before you reach the exit a robber appears, you must fight him to get throught")
+        choice = "run"
+    else:
+        print("you sneek past")
+        choice = "walk"
+    
+    return choice
