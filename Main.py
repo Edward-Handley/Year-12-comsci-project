@@ -30,29 +30,69 @@ class Robber:
 
 
 def Combat(player, enemy):
-    while player.health > 0 and  enemy.health > 0:
-        #print(f"{player.health} vs {enemy.health}")
+    
         P_attack = player.attack
         E_attack = enemy.attack
-
         P_defense = player.defense
         E_defense = enemy.defense
-        P_move = input(f"you are entering combat with {enemy.name}, you have 2 options \n [1]Attack \n [2]Run")
-        if P_move == 1:
-            if P_attack > E_defense:
-                    #if P_attack - E_defense > For random chance
-                if P_attack > enemy.health:
-                    print(f"You succesfully hit and defeated {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
-                else:
-                    print(f"You succesfully hit  {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
-                    print(f"They have {enemy.health} left")
-        if P_move == 2:
-            if P_defense > P_attack:
-                print("You blocked the enemies attack, this has left them vunerable. You have a chance to critical hit them")
-                Counter = input(f"Do you want to counter attack \m [1]Yes \n[2]No")
-                if Counter == 1:
-                    print("test")
 
+        print(f"Combat between {player.name} and {enemy.name}")
+
+        while player.health > 0 and enemy.health >0:
+            turn = "p"
+            if turn == "p":
+                P_move = int(input("Do you want to attack[1] or defend[2] \n Enter here: "))
+                if P_move == 1:
+                    P_attack_chance = player.attack * random.uniform(0.8, 1.2) > enemy.defense * random.uniform(0.1,1)
+                    if P_attack_chance: #True or False
+                        P_damage = enemy.health
+                        print(f"You hit {enemy.name} for {P_damage} insta killing")
+                    else:
+                        print(f"You missed your attack")
+                elif P_move == 2:
+                    P_defense_chance = player.defense * random.uniform(0.8, 1.2) > enemy.attack * random.uniform(0.1, 1)
+                    if P_defense_chance:
+                        print("You defend the enemies attack")
+                    else:
+                        E_damage = random.randint(10,20)
+                        print(f"You failed to defend their attack and took {E_damage}")
+                        player.health -= E_damage
+                turn = "e"
+            elif turn =="e":
+                print("follow through")
+
+
+                     
+                     
+        
+        
+        
+        
+        
+        
+        
+        
+        # while player.health > 0 and  enemy.health > 0:
+    #     #print(f"{player.health} vs {enemy.health}")
+        # P_move = int(input(f"you are entering combat you have 2 options \n [1]Attack \n [2]Run"))
+        # if P_move == 1:
+        #     print("attack")
+        #     if P_attack > E_defense:
+        #             #if P_attack - E_defense > For random chance
+        #         if P_attack > enemy.health:
+        #             print(f"You succesfully hit and defeated {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
+        #         else:
+        #             print(f"You succesfully hit  {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
+        #             print(f"They have {enemy.health} left")
+        # if P_move == 2:
+        #     print("defense")
+
+        #     if P_defense > P_attack:
+        #         print("You blocked the enemies attack, this has left them vunerable. You have a chance to critical hit them")
+        #         Counter = input(f"Do you want to counter attack \n [1]Yes \n[2]No")
+        #         if Counter == 1:
+        #             print("test")
+    
 
             
         
@@ -65,8 +105,9 @@ def Combat(player, enemy):
 
 def main():
     #Begging
-    Pcharacter = Create_Character()
+    #Pcharacter = Create_Character()
     #Pstats = Character
+    Pcharacter = Character("ed", 80, 80, 80, 80) #just test data
 
     
     #Pcharacter = Character(name, stamina, attack, defense, health)
@@ -81,6 +122,7 @@ def main():
 
     print(f"Your character {Pcharacter.name} ")
     enemy = Robber("Robber", 80, 80, 80, 80)
+    
     Combat(Pcharacter, enemy)
 
 main()
