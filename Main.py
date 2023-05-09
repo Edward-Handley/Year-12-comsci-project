@@ -1,6 +1,7 @@
 from Characters.Characters import *
 from Game_Functions.Intro_func import *
 import random
+import rich
 
 
 
