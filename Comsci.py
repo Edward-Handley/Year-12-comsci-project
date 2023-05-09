@@ -1,4 +1,5 @@
-from Characters.Character import *
+from Characters.Characters import *
+from Game_Functions.Intro_func import *
 #import random
 #import time
 
@@ -44,17 +45,7 @@ class Robber:
         
 
 
-def Intro():
-    print("\n \n \n")
-    print("You are a brave knight who is trying to return home from an epic battle")
-    print("You have been travelling for days and are now in a forest \n you must play to your strengths to defeat enemies in three different areas")
-    print("The frightening forest")
-    print("The hostile vilage")
-    print("The trecherous marsh lands")
-    print("Once you do all these you can return home to your kingdom")
-    print("Good luck")
-    my_character = Character("default", 0, 0, 0, 0)
-    my_character.Create_Character()
+
 
 
 
@@ -200,3 +191,39 @@ main()
 
 
 
+#def Intro():
+#     print("\n \n \n")
+#     print("You are a brave knight who is trying to return home from an epic battle")
+#     print("You have been travelling for days and are now in a forest \n you must play to your strengths to defeat enemies in three different areas")
+#     print("The frightening forest")
+#     print("The hostile vilage")
+#     print("The trecherous marsh lands")
+#     print("Once you do all these you can return home to your kingdom")
+#     print("Good luck")
+#     my_character = Character("default", 0, 0, 0, 0)
+#     my_character.Create_Character()
+
+
+
+
+   
+        # while player.health > 0 and  enemy.health > 0:
+    #     #print(f"{player.health} vs {enemy.health}")
+        # P_move = int(input(f"you are entering combat you have 2 options \n [1]Attack \n [2]Run"))
+        # if P_move == 1:
+        #     print("attack")
+        #     if P_attack > E_defense:
+        #             #if P_attack - E_defense > For random chance
+        #         if P_attack > enemy.health:
+        #             print(f"You succesfully hit and defeated {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
+        #         else:
+        #             print(f"You succesfully hit  {enemy.name}, you dealt {P_attack} damage \n The enemy didnt block any of your attack")
+        #             print(f"They have {enemy.health} left")
+        # if P_move == 2:
+        #     print("defense")
+
+        #     if P_defense > P_attack:
+        #         print("You blocked the enemies attack, this has left them vunerable. You have a chance to critical hit them")
+        #         Counter = input(f"Do you want to counter attack \n [1]Yes \n[2]No")
+        #         if Counter == 1:
+        #             print("test")

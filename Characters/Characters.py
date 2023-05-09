@@ -71,6 +71,7 @@ def Create_Character():
     
     
     Base_Character.update_attributes(stamina, attack, defense, health)
+    return Base_Character
 
 
 
@@ -79,3 +80,15 @@ def Create_Character():
     print("╠═════════════════════╬════════════════╣")
     Base_Character.display_stats()
   
+
+
+
+
+class Robber:
+    def __init__(self, name, stamina, attack, defense, health):
+        self.name = name
+        self.stamina = stamina
+        self.attack = attack
+        self.defense = defense
+        self.health = health
+    
