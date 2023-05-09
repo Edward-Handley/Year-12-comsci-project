@@ -99,29 +99,30 @@ def Combat(player, enemy):
 def main():
     #Begging
     Pcharacter = Create_Character()
-    Pstats = Character()
+    #Pstats = Character()
     #Pcharacter = Character("ed", 80, 80, 80, 80) #just test data
 
     
    # Pcharacter = Character(name, stamina, attack, defense, health)
     #Pstats = Pcharacter.get_stats()
     want_Intro = input("Do you want an intro to the game?   [Y/N]").upper()
-    while want_Intro != "Y" or "N":
-        print("Invalid entry ry again")
+    while want_Intro != "Y" and want_Intro != "N":
+        print("Invalid entry try again")
         want_Intro = input("Do you want an intro to the game?   [Y/N]").upper()
     if want_Intro == "Y":
         Intro()
     else:
         print("No intro, Good luck!")
 
+
     print(f"Your character {Pcharacter.name} ")
     enemy = Robber("Robber", 80, 80, 80, 80) #create instance of enemy for forrest section 
-    # run_or_Walk = Forrest()
-    # print(run_or_Walk)
-    # if run_or_Walk == "run":
+   
         
         
-    Combat_winner = Combat(Pstats, enemy)
+  
+    forrest_result, combat_result = Forrest(Pcharacter)
+    
 
 
 
