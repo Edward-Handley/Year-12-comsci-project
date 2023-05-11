@@ -2,17 +2,16 @@
 ################################################### OVERHAULED V2.2 ###################################################
 import random
 from rich import print
-from Characters.Characters import Character, Enemy
+from Characters.Characters import Character, Robber
 
 def Combat(player, enemy):
     print("----------------------------------------------[bold red]COMBAT[/bold red]--------------------------------------------\n")
     print(f"Combat between [bold]{player.name}[/bold] and [bold]{enemy.name}[/bold]\n")
-    print(f"Enemy stats: [bold]{enemy.stamina}[/bold] stamina, [bold]{enemy.attack}[/bold] attack, [bold]{enemy.defense}[/bold] defense, [bold]{enemy.health}[/bold] health\n")
 
     player_energy = 100
     enemy_energy = 100
 
-    turn = "p" # Assigns the turn to player by default
+    turn = "p"
 
     while player.health > 0 and enemy.health > 0:
         if turn == "p":
@@ -25,30 +24,30 @@ def Combat(player, enemy):
                 print("[red]Not enough energy for this action![/red]")
                 continue
 
-            if P_move == 1 or P_move == 2: #Habdles the Player Attack moves
+            if P_move == 1 or P_move == 2:
                 P_attack = player.attack * (1.5 if P_move == 2 else 1)
-                P_attack_chance = (P_attack * random.uniform(0.8, 1.2)) / (enemy.defense * random.uniform(0.8, 1.2)) # Generates a random number between 0.8 and 1.2 and multiplies it by the attack and defense values to simulate a random chance of hitting
+                P_attack_chance = (P_attack * random.uniform(0.8, 1.2)) / (enemy.defense * random.uniform(0.8, 1.2))
                 critical_hit = random.random() < 0.1
 
-                if P_attack_chance > random.random(): # If the attack chance is greater than a random number between 0 and 1, the attack hits
+                if P_attack_chance > random.random():
                     P_damage = max(1, int(P_attack * random.uniform(0.8, 1.2))) * (2 if critical_hit else 1)
                     print(f"\nYou hit [bold]{enemy.name}[/bold] for [bold]{P_damage}[/bold] damage" + (" [bold red](CRITICAL HIT!)[/bold red]" if critical_hit else ""))
                     enemy.health -= P_damage
                 else:
                     print("\n[red]You missed your attack[/red]")
 
-                if P_move == 2: #Subtracts energy for power hit
+                if P_move == 2:
                     player_energy -= 30
 
-            elif P_move == 3 or P_move == 4: #Handles Defenseive moves
+            elif P_move == 3 or P_move == 4:
                 player.defense *= 1.5 if P_move == 4 else 1
                 if P_move == 4:
                     player_energy -= 30
                 
-                turn = "e" # If Defense move = True then turn = enemy
+            turn = "e"
             player_energy = min(player_energy + 10, 100)
 
-        elif turn == "e": #Handles the Enemy's turn
+        elif turn == "e":
             print(f"\nNow it is [bold]{enemy.name}[/bold]'s turn to attack")
 
             enemy_choice = random.choices([1, 2, 3, 4], weights=[40, 20, 30, 10], k=1)[0]
