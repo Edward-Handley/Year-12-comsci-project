@@ -56,4 +56,6 @@ def Forrest(player):
 def Town(player):
     place_holder = "Terrifying Town"
     print("\n" * 2)
-    section_Headings(place_holder)
+    print(f"[bold blue]{place_holder}[/bold blue]")
+
+    print("You begin to walk into the tow")
