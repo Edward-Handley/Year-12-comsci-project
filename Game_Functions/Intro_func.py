@@ -1,4 +1,4 @@
-import random
+import time
 from rich import print
 from Characters.Characters import Character,Enemy
 from Game_Functions.Combat import Combat
@@ -15,7 +15,7 @@ def Intro():
       "╚══════════════════════════════════════════╝")
 
 
-def Victory():
+def Victory():#Victory function
     print("\n" * 2)
     print("[bold cyan]═════════════════════ VICTORY ═════════════════════[/bold cyan]")
 
@@ -33,7 +33,7 @@ Your journey has come to an end, but your legend will live on forever.
 def Forrest(player):
     place_holder = "Freaky Forrest"
     print("\n" * 2)
-    print(f"[bold green]{place_holder:^46}[/bold green]")
+    print(f"[bold green]{place_holder:^46}[/bold green]") 
     print("[bold green]" + "═" * 46 + "[/bold green]")
     #print("You start your journey in a descriptive on a narrow gravel path")
     print("""
@@ -48,8 +48,8 @@ You step into the lush, green forest, surrounded by the sounds of birds chirping
         print("As you sneak past, you notice a movement in the bushes...")
         print("A robber appears, you must fight him to get through")
         choice = "walk"
-
-    robber = Enemy("Robber", 80, 80, 80, 80)
+    time.sleep(3)
+    robber = Enemy("Robber", 80, 80, 80, 80)# Assigns enemy class vals to current enemy
     combat_result = Combat(player, robber)
 
     return choice, combat_result
@@ -71,11 +71,11 @@ As you approach the Terrifying Town, you notice the cobblestone streets are eeri
         print("You push open the creaky door of the tavern and step inside.")
         print("The tavern is dimly lit, with a few patrons huddled in a corner, nursing their drinks and murmuring amongst themselves.")
         print("Suddenly, a hooded figure approaches you, brandishing a dagger. It seems you've attracted some unwanted attention...")
-        enemy = Enemy("Hooded Assassin", 90, 90, 90, 90)
+        enemy = Enemy("Hooded Assassin", 90, 90, 90, 90)# Assigns enemy class vals to current enemy
     else:
         print("You decide to continue exploring the town, avoiding the ominous tavern.")
         print("As you round a corner, you find yourself face-to-face with a brutish-looking thug. He cracks his knuckles menacingly, demanding all of your belongings.")
-        enemy = Enemy("Thug", 100, 80, 70, 90)
+        enemy = Enemy("Thug", 100, 80, 70, 90)# Assigns enemy class vals to current enemy
         
     combat_result = Combat(player, enemy)
     
@@ -96,7 +96,7 @@ Entering the Mysterious Marshland, the air grows heavy with the scent of stagnan
     print("As you navigate the treacherous terrain, a swamp monster emerges from the murky waters, blocking your path.")
     print("You have no choice but to fight the swamp monster to continue your journey.")
 
-    swamp_monster = Enemy("Swamp Monster", 100, 100, 100, 100)
+    swamp_monster = Enemy("Swamp Monster", 100, 100, 100, 100) # Assigns enemy class vals to current enemy
     combat_result = Combat(player, swamp_monster)
 
     return "Marsh", combat_result

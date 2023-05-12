@@ -1,4 +1,4 @@
-import plotext as plt
+
 from rich import print
 
 #Module for all function concering the charater
@@ -25,7 +25,7 @@ class Character:
         self.defense = self.defense + defense
         self.health = self.health + health
 
-class Enemy:
+class Enemy: #Enemy class
     def __init__(self, name, stamina, attack, defense, health):
         self.name = name
         self.stamina = stamina
@@ -53,12 +53,14 @@ def Create_Character():
         print(f"You have {points_to_spend} points to spend")
         print(f"\nCurrent stamina: [bold blue]{Base_Character.stamina}[/bold blue]")
         stamina = int(input("How many points would you like to spend on Stamina? "))
-        #stamina = int(input(f"Your current stamina is {Base_Character.stamina}, how many points would you like to spend on Stamina? "))
+      
         while stamina > points_to_spend:
             print(f"You don't have enough points to spend, {points_to_spend} left")
             print(f"\nCurrent stamina: [bold blue]{Base_Character.stamina}[/bold blue]")
             stamina = int(input("How many points would you like to spend on Stamina? "))
         print(f" + {stamina} stamina  [bold red]{points_to_spend - stamina} [/bold red]points left")
+
+          
         
         points_to_spend = points_to_spend - stamina
         print(f"\nCurrent attack: [bold blue]{Base_Character.attack}[/bold blue]")
@@ -69,6 +71,7 @@ def Create_Character():
             attack = int(input("How many points would you like to spend on Attack? "))
         print(f" + {attack} stamina  [bold red]{points_to_spend - attack} [/bold red]points left")
         
+        
         points_to_spend = points_to_spend - attack
         print(f"\nCurrent attack: [bold blue]{Base_Character.defense}[/bold blue]")
         defense = int(input("How many points would you like to spend on defense? "))
@@ -78,7 +81,7 @@ def Create_Character():
             defense = int(input("How many points would you like to spend on defense? "))
         print(f" + {defense} stamina  [bold red]{points_to_spend - defense} [/bold red]points left")
         
-
+        
         points_to_spend = points_to_spend - defense
         print(f"\nCurrent attack: [bold blue]{Base_Character.health}[/bold blue]")
         health= int(input("How many points would you like to spend on health? "))
