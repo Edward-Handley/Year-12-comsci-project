@@ -39,9 +39,13 @@ def main():
     time.sleep(3)  # Pause for 3 seconds
 
     marshland_result = Marshland(Pcharacter)
+    print(marshland_result)
 
     if marshland_result == "win":
         time.sleep(3)  # Pause for 3 seconds
         Victory() # Runs Victory Function
 
-main()
+#main()
+
+if __name__ == "__main__":
+    main()

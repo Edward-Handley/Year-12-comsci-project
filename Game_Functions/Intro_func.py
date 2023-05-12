@@ -99,5 +99,5 @@ Entering the Mysterious Marshland, the air grows heavy with the scent of stagnan
     swamp_monster = Enemy("Swamp Monster", 100, 100, 100, 100) # Assigns enemy class vals to current enemy
     combat_result = Combat(player, swamp_monster)
 
-    return "Marsh", combat_result
+    return combat_result
 
